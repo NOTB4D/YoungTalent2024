@@ -1,0 +1,11 @@
+//
+//  product.xcconfig
+//  YoungTalentNetworking
+//
+//  Created by Eser Kucuker on 10.05.2024.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = https:\/\/api.themoviedb.org/\
