@@ -16,12 +16,11 @@ extension Networkable {
     ) async -> URLRequest {
         var url = API.prepareUrl(withPath: path)
         url.append(queryItems: [.init(name: "api_key", value: "a9682a1bcb1c6843474a121144fd9071")])
-        var request = await prepareRequest(
+        return prepareRequest(
             url: url,
             method: httpMethod,
             contentType: ContentType.json
         )
-        return request
     }
 
     func getRequest<T: Decodable>(
@@ -32,20 +31,18 @@ extension Networkable {
         var url = API.prepareUrl(withPath: path)
         url.append(queryItems: [.init(name: "api_key", value: "a9682a1bcb1c6843474a121144fd9071")])
         // TODO: Add decodable
-        var request = await prepareRequest(
+        return prepareRequest(
             url: url,
             method: httpMethod,
             contentType: ContentType.json
         )
-        return request
     }
-    ///
 
     private func prepareRequest(
         url: URL,
         method: RequestMethod,
         contentType: ContentType
-    ) async -> URLRequest {
+    ) -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = API.getHeader(contentType: contentType)
